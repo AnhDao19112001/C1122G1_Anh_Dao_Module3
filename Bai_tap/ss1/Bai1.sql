@@ -4,18 +4,18 @@ create database student;
 
 use student;
 
-create table class(
+create table student_class(
 id int primary key,
 name varchar(255)
 );
 
-insert into class(id, name)
+insert into student_class(id, name)
 value (1, 'c1122g1'),
 (2, 'c1122g1'),
 (3, 'c1122g1'),
 (4, 'c1122g1');
 
-select * from class;
+select * from student_class;
 
 create table teacher(
 id int primary key,
