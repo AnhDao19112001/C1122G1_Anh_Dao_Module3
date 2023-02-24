@@ -29,3 +29,12 @@ primary key(id_order, id_product),
 foreign key(id_order) references `order`(id_order),
 foreign key(id_product) references product(id_product)
 );
+insert into customer(id_customer,`name`,age)
+values (1,'Anh',20),
+(2,'Dao',20);
+insert into `order`(id_order,`date`,total_price,id_customer)
+values (1,'2023-02-20',20000,1);
+insert into product(id_product,`name`,price)
+values (1,'Tủ lạnh',100000);
+insert into order_deltail(quantity,id_order,id_product)
+values (3,1,1);
