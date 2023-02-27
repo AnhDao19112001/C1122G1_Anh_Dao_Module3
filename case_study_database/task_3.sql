@@ -21,3 +21,31 @@ select hop_dong.ma_dich_vu
 from hop_dong
 where year(hop_dong.ngay_lam_hop_dong) = 2021)
 group by ma_dich_vu;
+
+-- task 8 
+select ho_ten
+from khach_hang
+group by ho_ten;
+
+select distinct ho_ten
+from khach_hang;
+
+select ho_ten
+from khach_hang
+union
+select ho_ten
+from khach_hang;
+
+-- task 9
+select month(ngay_lam_hop_dong) as thang, count(ma_khach_hang) as so_luong_khach_hang
+from hop_dong
+where year(ngay_lam_hop_dong) = 2021
+group by thang
+order by thang;
+
+-- task 10
+select hop_dong.ma_hop_dong, hop_dong.ngay_lam_hop_dong, hop_dong.ngay_ket_thuc, hop_dong.tien_dac_coc,
+sum(ifnull(hop_dong_chi_tiet.so_luong, 0)) as so_luong_dich_vu_di_kem
+from hop_dong
+left join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong
+group by ma_hop_dong;
