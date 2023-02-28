@@ -32,7 +32,7 @@ from khach_hang;
 
 select ho_ten
 from khach_hang
-union
+union 
 select ho_ten
 from khach_hang;
 
