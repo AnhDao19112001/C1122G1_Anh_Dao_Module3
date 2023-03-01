@@ -11,7 +11,7 @@ where lk.ten_loai_khach = 'Diamond' and (kh.dia_chi like "%Vinh" or kh.dia_chi l
 
 -- task 12
 select hd.ma_hop_dong, nv.ho_ten as ho_ten_nhan_vien, kh.ho_ten as ho_ten_khach_hang, kh.so_dien_thoai as sdt_khach_hang, dv.ten_dich_vu,
-sum(ifnull(hdct.so_luong, 0)) as so_luong_dich_vu_di_kem, hd.tien_dat_coc
+sum(ifnull(hdct.so_luong, 0)) as so_luong_dich_vu_di_kem, hd.tien_dac_coc
 from hop_dong hd
 left join nhan_vien nv on hd.ma_nhan_vien = nv.ma_nhan_vien
 left join khach_hang kh on hd.ma_khach_hang = kh.ma_khach_hang
@@ -24,6 +24,16 @@ where year(hd.ngay_lam_hop_dong) = 2021 and (month(hd.ngay_lam_hop_dong) between
 group by hd.ma_hop_dong;
 
 -- task 13
+select dvdk.ma_dich_vu_di_kem, dvdk.ten_dich_vu_di_kem, sum(hdct.so_luong) as so_luong_dich_vu_di_kem
+from dich_vu_di_kem dvdk
+join hop_dong_chi_tiet hdct on dvdk.ma_dich_vu_di_kem = hdct.ma_dich_vu_di_kem
+group by ma_dich_vu_di_kem
+having so_luong_dich_vu_di_kem = (
+	select sum(hdct.so_luong) as sl
+	from hop_dong_chi_tiet hdct
+    group by ma_dich_vu_di_kem
+    order by sl desc
+    limit 1);
     
 -- task 14
 select hd.ma_hop_dong, ldv.ten_loai_dich_vu, dvdk.ten_dich_vu_di_kem, count(hdct.ma_dich_vu_di_kem) as so_lan_su_dung
