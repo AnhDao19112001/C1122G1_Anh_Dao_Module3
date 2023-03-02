@@ -49,6 +49,7 @@ so_dien_thoai varchar(45) not null,
 email varchar(45),
 dia_chi varchar(45),
 ma_loai_khach int,
+is_delete bit default 0,
 foreign key(ma_loai_khach) references loai_khach(ma_loai_khach)
 );
 
