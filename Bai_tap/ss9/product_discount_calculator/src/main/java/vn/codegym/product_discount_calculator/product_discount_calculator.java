@@ -25,7 +25,7 @@ public class product_discount_calculator extends HttpServlet {
 
         printWriter.println("</html>");
     }
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 
     }
 }

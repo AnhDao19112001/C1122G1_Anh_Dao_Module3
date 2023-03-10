@@ -21,7 +21,7 @@
     <textarea name="description" cols="30" rows="10" placeholder="description"></textarea>
     <input type="text" name="price" placeholder="price"/>
     <input type="text" name="discount" placeholder="discount"/>
-    <input type="submit" name="calculate" value="Calculate Discount/">
+    <input type="submit" name="calculate" value="Calculate Discount"/>
     </form>
 </div>
 </body>
